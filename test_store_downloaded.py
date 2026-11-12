@@ -1,4 +1,5 @@
 import utils
+import os
 
 def test_basic(tmpdir):
     name = 'test1'
@@ -10,6 +11,12 @@ def test_basic(tmpdir):
 
     utils.store_script(tmpdir, name, script)
 
-    f = open(tmpdir + '/' + name)
+    script_path = tmpdir + '/' + name
+
+    # verify that content is as desired
+    f = open(script_path)
     content = f.read()
     assert content == script
+
+    # verify that we have execute-permissions
+    assert os.access(script_path, os.X_OK)
