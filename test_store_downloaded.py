@@ -1,5 +1,6 @@
 import utils
 import os
+import pytest
 
 def test_basic(tmpdir):
     name = 'test1'
@@ -20,3 +21,7 @@ def test_basic(tmpdir):
 
     # verify that we have execute-permissions
     assert os.access(script_path, os.X_OK)
+
+@pytest.mark.xfail(reason="error tests missing")
+def test_errors():
+    assert False
