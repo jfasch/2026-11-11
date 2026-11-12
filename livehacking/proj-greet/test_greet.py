@@ -1,6 +1,5 @@
-def greet(name):
-    return f'Hi {name}, my name is Joerg'
+import greet
 
 def test_greet():
-    output = greet('Hrvoje')
+    output =  greet.greet('Hrvoje')
     assert output == 'Hi Hrvoje, my name is Joerg'
